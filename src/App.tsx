@@ -1,14 +1,14 @@
-import Cover from './Page/Cover/Cover'
-import './App.css'
+import Cover from "./Page/Cover/Cover";
+import Spacer from "./Page/Spacer/Spacer";
+import "./App.css";
 
 const App = () => {
+	return (
+		<>
+			Notion Cloning happening ...
+			<Cover />
+		</>
+	);
+};
 
-  return (
-    <>
-     Notion Cloning happening ...
-     <Cover/>
-    </>
-  )
-}
-
-export default App
+export default App;
