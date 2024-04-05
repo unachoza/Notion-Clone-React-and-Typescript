@@ -1,5 +1,6 @@
 import { NodeData } from "../../utils/types";
 import { useRef, useEffect, FormEventHandler, KeyboardEventHandler } from "react";
+import { useAppState } from "../../context/AppStateContext";
 import styles from "./BasicNode.module.css";
 import { nanoid } from "nanoid";
 
@@ -7,14 +8,12 @@ type BasicNodeProps = {
 	node: NodeData;
 	index: number;
 	isFocused: boolean;
-	addNode(node: NodeData, index: number): void;
-	removeNode(index: number): void;
-	changeNodeValue(index: number, value: string): void;
 	updateFocusedIndex(index: number): void;
 };
 
-const BasicNode = ({ node, index, isFocused, addNode, removeNode, changeNodeValue, updateFocusedIndex }: BasicNodeProps) => {
+const BasicNode = ({ node, index, isFocused, updateFocusedIndex }: BasicNodeProps) => {
 	const nodeRef = useRef<HTMLDivElement>(null);
+	const { changeNodeValue, removeNodeByIndex, addNode } = useAppState();
 
 	useEffect(() => {
 		isFocused ? nodeRef.current?.focus() : nodeRef.current?.blur();
@@ -46,11 +45,11 @@ const BasicNode = ({ node, index, isFocused, addNode, removeNode, changeNodeValu
 		if (event.key === "Backspace") {
 			if (target.textContent?.length === 0) {
 				event.preventDefault();
-				removeNode(index);
+				removeNodeByIndex(index);
 				updateFocusedIndex(index - 1);
 			} else if (window?.getSelection()?.anchorOffset === 0) {
 				event.preventDefault();
-				removeNode(index - 1);
+				removeNodeByIndex(index - 1);
 				updateFocusedIndex(index - 1);
 			}
 		}

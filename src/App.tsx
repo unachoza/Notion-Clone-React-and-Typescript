@@ -1,12 +1,11 @@
-import Cover from "./Page/Cover/Cover";
-import Spacer from "./Page/Spacer/Spacer";
+import { Page } from "./Page/Page";
 import "./App.css";
 
 const App = () => {
 	return (
 		<>
 			Notion Cloning happening ...
-			<Cover />
+			<Page />
 		</>
 	);
 };

@@ -15,7 +15,7 @@ const Cover = () => {
 
 	return (
 		<div className={styles.cover}>
-			<img src="/ztm-notes.png" alt="cover" />
+			<img src="/ztm-notes.png" alt="cover" className={styles.image} />
 			<button className={styles.button} onClick={onChangeCoverImage}>
 				Change cover
 			</button>
