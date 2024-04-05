@@ -1,12 +1,15 @@
 import { Page } from "./Page/Page";
+import { createPage } from "./utils/createPage";
+import { AppStateProvider } from "./context/AppStateContext";
 import "./App.css";
+
+const initialState = createPage();
 
 const App = () => {
 	return (
-		<>
-			Notion Cloning happening ...
+		<AppStateProvider initialState={initialState}>
 			<Page />
-		</>
+		</AppStateProvider>
 	);
 };
 

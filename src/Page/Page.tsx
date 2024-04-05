@@ -5,6 +5,13 @@ import Title from "./Title/Title";
 import BasicNode from "../Node/BasicNode/BasicNode";
 import { nanoid } from "nanoid";
 import { useAppState } from "../context/AppStateContext";
+import { NodeData } from "../utils/types";
+
+type PageNodeProps = {
+	node: NodeData;
+	isFocused: boolean;
+	index: number;
+};
 
 export const Page = () => {
 	const { nodes, addNode, title, setTitle } = useAppState();
