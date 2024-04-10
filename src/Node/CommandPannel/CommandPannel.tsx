@@ -33,6 +33,15 @@ const CommandPanel = ({ selectItem, nodeText }: CommandPanelProps) => {
 			if (event.key === "Enter") {
 				selectItem(supportedNodeTypes[selectedItemIndex].value);
 			}
+			if (event.key === "ArrowUp") {
+				if (selectedItemIndex === 0) return;
+				setSelectedItemIndex((prevSelectedItemIndex) => prevSelectedItemIndex - 1);
+			}
+
+			if (event.key === "ArrowDown") {
+				if (selectedItemIndex === supportedNodeTypes.length - 1) return;
+				setSelectedItemIndex((prevSelectedItemIndex) => prevSelectedItemIndex + 1);
+			}
 		};
 
 		window.addEventListener("keydown", handleKeyDown);
