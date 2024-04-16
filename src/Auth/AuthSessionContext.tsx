@@ -20,6 +20,7 @@ export const AuthSessionProvider = ({ children }: AuthSessionProviderProps) => {
 	useEffect(() => {
 		const auth = async () => {
 			const { data, error } = await supabase.auth.getSession();
+			console.log({ data });
 			if (data.session) {
 				setSession(data.session);
 				setLoading(false);
@@ -29,6 +30,7 @@ export const AuthSessionProvider = ({ children }: AuthSessionProviderProps) => {
 		};
 		auth();
 		supabase.auth.onAuthStateChange((_event, session) => {
+			console.log(_event, session, "is there a session or event? no seriously im curious");
 			setSession(session);
 			setLoading(false);
 		});

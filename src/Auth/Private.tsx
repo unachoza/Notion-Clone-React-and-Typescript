@@ -12,7 +12,6 @@ const Private = ({ component }: PrivateProps) => {
 	if (loading) {
 		<>Authenticating ...</>;
 	}
-	console.log({ session });
 	return session ? component : <Navigate to="/auth" />;
 };
 

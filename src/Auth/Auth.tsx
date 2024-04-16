@@ -9,6 +9,7 @@ const Auth = () => {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [email, setEmail] = useState<string>("");
 	const { session } = useAuthSession();
+	console.log({ session });
 
 	const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
